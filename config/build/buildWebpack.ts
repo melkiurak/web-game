@@ -17,16 +17,16 @@ export function buildWebpack(options:BuildOptions):webpack.Configuration {
             devServer: buildDevServer(options),
             optimization:{
                 minimize: true,
-                minimizer:[
-                ],
+                runtimeChunk: 'single',
             },
             plugins:buildPlugins(options),
             module:{
                 rules: buildLoader(options),
             },
             output: {
-                filename: 'bundle.js',
                 path: paths.output,
+                filename: '[name].[contenthash].js',
+                assetModuleFilename: 'assets/images/[name][ext][query]',
                 clean: true,
             },
             devtool: isDev && 'inline-source-map',

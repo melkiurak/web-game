@@ -1,4 +1,163 @@
+@import url(https://fonts.googleapis.com/css?family=Vazirmatn:100,200,300,regular,500,600,700,800,900);
 @import url('./header.scss');
+
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+
+a, a:link, a:visited  {
+    text-decoration: none;
+}
+
+a:hover  {
+    text-decoration: none;
+}
+
+
+aside, nav, footer, header, section, main {
+	display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-size: inherit;
+	font-weight: inherit;
+}
+
+ul, ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+img, svg {
+	max-width: 100%;
+	height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+
+input, textarea, button, select {
+	font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+legend {
+	display: block;
+}
+
 body{
     background-color: #1C1B29;
+    font-family: 'Vazirmatn', sans-serif;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding:  0 15px;
+}
+.hero{
+    height: 742px;
+    overflow: hidden; /* Скрывает все, что выходит за пределы блока */
+
+    .hero__container{
+        width: 100%;
+        height: 100%;
+        background-image: 
+        linear-gradient(to left, rgba(28, 27, 41, 0), rgba(28, 27, 41, 1) 76.5%),
+        linear-gradient(to top, rgba(28, 27, 41, 1), rgba(28, 27, 41, 0)20%),
+        url('../assets/da/W3.png');        
+        background-repeat: no-repeat; 
+        background-size: contain;
+    }
+}
+@media (max-width:1280px){
+    .container{
+        max-width: 884px;
+    }
+    .header{
+        .header__navigation{
+            max-width: 500px;
+        }
+        .header__nav {
+            .header__nav-link {
+              font-size: 14px;
+            }
+        }
+        .header__auth {
+            button{
+                font-size: 14px;
+            }
+        }
+    }
+}
+@media (max-width:1024px){
+    .header{
+        .header__navigation{
+            max-width: 400px;
+        }
+        .header__auth {
+            button{
+                font-size: 14px;
+                padding:7.5px 20px;
+            }
+        }
+    }
+}
+@media (max-width:768px) {
+    .header{
+        .header__logos{
+            flex: 1;
+        }
+        .header__navigation{
+            display: none;
+        }
+        .header__auth {
+            display: none;
+        }
+        .header__burger{
+            display: block;
+            margin-left: 12px;
+        }
+    }
 }

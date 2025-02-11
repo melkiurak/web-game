@@ -1,0 +1,103 @@
+@import url(https://fonts.googleapis.com/css?family=Vazirmatn:100,200,300,regular,500,600,700,800,900);
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.0); 
+  backdrop-filter: blur(10px); 
+  z-index: 1000;
+  animation: rotateHeader 10s linear infinite;
+  height: 83px;
+  display: flex;
+  align-items: center;
+  .header__container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header__brand {
+    display: flex;
+    align-items: center;
+    gap: 3.5px;
+  }
+
+  .header__search{
+    width: 32px;
+    height: 32px;
+    border-radius: 30px;
+    background-color: #FF5733; 
+    img{
+      padding: 8px;
+    }
+  }
+
+  .header__navigation {
+    width: 100%;
+    max-width: 811px;
+  }
+
+  .header__nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .header__nav-link {
+      color: white;
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+
+  .header__auth {
+    display: flex;
+    gap: 16px;
+    height: 40px;
+    button{
+      white-space: nowrap;
+      border-radius: 16px;
+      font-size: 16px;
+      font-weight: 500;
+      span{
+        padding:7.5px 24px;
+      }
+    }
+  }
+
+  .header__signup {
+    background-color: #E64E2E;
+    color: white;
+  }
+
+  .header__login {
+    background-color: rgba($color: #000000, $alpha: 1.0);
+    border: 2px solid #E64E2E;
+    color: #E64E2E;
+    
+  }
+  .header__burger{
+    display: none;
+    width: 36px;
+    height: 36px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    span{
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #FF5733;
+      transition: all 0.5s;
+    }
+    span:nth-of-type(2) {
+      top: calc(50% - 5px);
+    }
+    span:nth-of-type(3) {
+      top: calc(50% + 5px);
+    }
+  }
+}

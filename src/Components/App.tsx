@@ -3,10 +3,10 @@ import { Header } from './Header/Header'
 import { Outlet } from 'react-router-dom'
 export const  App = () => {
     return (
-        <div>
+        <div className='cosi'>
             <Header/>
-            <div>
-                <h1>hih</h1>
+            <div className='hero'>
+                <div className='container hero__container'></div>
             </div>
             <Outlet/>
         </div>
