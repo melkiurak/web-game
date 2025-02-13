@@ -4,6 +4,8 @@ import {createRoot} from 'react-dom/client';
 import { createBrowserRouter } from 'react-router';
 import { RouterProvider } from 'react-router-dom';
 import { App } from './Components/App';
+import { ApolloProvider } from '@apollo/client';
+import { client } from './service/gamedata';
 
 const root = document.getElementById('root')
 if(!root) {
@@ -32,4 +34,8 @@ const router = createBrowserRouter([
     }
 ]);
 
-container.render(<RouterProvider router={router}/>)
+container.render(
+    <ApolloProvider client={client}>
+        <RouterProvider router={router}/>
+    </ApolloProvider>
+)
