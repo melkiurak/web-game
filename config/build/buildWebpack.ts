@@ -26,7 +26,7 @@ export function buildWebpack(options:BuildOptions):webpack.Configuration {
             output: {
                 path: paths.output,
                 filename: '[name].[contenthash].js',
-                assetModuleFilename: 'assets/images/[name][ext][query]',
+                assetModuleFilename: 'assets/[name][ext][query]',
                 clean: true,
             },
             devtool: isDev && 'inline-source-map',

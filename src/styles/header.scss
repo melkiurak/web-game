@@ -1,42 +1,42 @@
 @import url(https://fonts.googleapis.com/css?family=Vazirmatn:100,200,300,regular,500,600,700,800,900);
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.0); 
-  backdrop-filter: blur(10px); 
+  backdrop-filter: blur(4px); 
   z-index: 1000;
   animation: rotateHeader 10s linear infinite;
-  height: 83px;
+  height: 90px;
   display: flex;
   align-items: center;
-  .header__container {
+  .header__container {    
     display: flex;
-    align-items: center;
-    width: 100%;
+    align-items: center; 
     justify-content: space-between;
+    width: 100%;
   }
 
   .header__brand {
     display: flex;
     align-items: center;
     gap: 3.5px;
+    flex: 0;
+    padding-right: 20px;
   }
 
   .header__search{
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     border-radius: 30px;
     background-color: #FF5733; 
     img{
       padding: 8px;
     }
   }
-
+  
   .header__navigation {
-    width: 100%;
-    max-width: 811px;
+    flex: 1;
+    padding: 0 10.5px 0 20px;
   }
 
   .header__nav {
@@ -53,8 +53,12 @@
 
   .header__auth {
     display: flex;
-    gap: 16px;
+    flex: 0;
+    max-width: 208px;
+    width: 100%;
+    justify-content: space-between;
     height: 40px;
+    gap: 16px;
     button{
       white-space: nowrap;
       border-radius: 16px;

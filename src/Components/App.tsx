@@ -1,29 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Header } from './Header/Header'
 import { Outlet } from 'react-router-dom'
-import { GET_GAMES } from "../service/gamedata";
+import { Hero } from './Hero/Hero';
 import { useQuery } from '@apollo/client';
 import { GamesData } from '../types/types';
+import { GET_GAMES } from '../service/gamedata';
 export const  App = () => {
-    const {data} = useQuery<GamesData>(GET_GAMES);
+    const { data } = useQuery<GamesData>(GET_GAMES);
+    const [slide, setSlide] = useState(0);
+
     return (
-        <div className='cosi'>
+        <div className='wrapper'>
             <Header/>
-            <div className='hero'>
-                {data?.games.edges.map((edge:any) => (
-                    <div key={edge.node.objectId} className='container hero__container' style={{
-                        backgroundImage: `
-                            linear-gradient(to left, rgba(28, 27, 41, 0), rgba(28, 27, 41, 1) 76.5%),
-                            linear-gradient(to top, rgba(28, 27, 41, 1), rgba(28, 27, 41, 0) 20%),
-                            url('${edge.node.BackgroundTop.url}')
-                        `,
-                    }}> 
-                    </div>
+            <Hero data={data} slide={slide} setSlide={setSlide}/>
+            <Outlet/>
+            <div className='background__slider'>
+                {data?.games.edges.map((edge, index) =>(
+                    index === slide && (
+                        <div key={edge.node.objectId} className={`background__slide ${index === 0 ? 'first-slide' : ''}`} style={{backgroundImage: `url('${edge.node.BackgroundTop.url}')`, display: index === slide ? 'flex' : 'none', opacity: index === slide ? 1 : 0, visibility: index === slide ? 'visible' : 'hidden', transition: 'opacity 0.5s ease, visibility 0s 0.5s'}}></div>
+                    )
                 ))}
             </div>
-            <div>
-            </div>
-            <Outlet/>
         </div>
     )
 }

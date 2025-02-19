@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Vazirmatn:100,200,300,regular,500,600,700,800,900);
 @import url('./header.scss');
-
+@import url('./hero.scss');
 * {
 	padding: 0px;
 	margin: 0px;
@@ -90,73 +90,228 @@ legend {
 body{
     background-color: #1C1B29;
     font-family: 'Vazirmatn', sans-serif;
+    height: 100vh;
+}
+.root{
+    width: 100%;
+    height: 100%;
+}
+.wrapper{
+    max-width: 1440px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.background__slider {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 860px;
+}
+.background__slide {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: top;
+    display: flex;
+  }
+  
+.background__slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(to left, rgba(28, 27, 41, 0), rgba(28, 27, 41, 1) 74.5%),
+      linear-gradient(to top, rgba(28, 27, 41, 1), rgba(28, 27, 41, 0) 20%);
+    pointer-events: none;
 }
 .container{
     max-width: 1200px;
     margin: 0 auto;
-    padding:  0 15px;
 }
-.hero{
-    height: 742px;
-    overflow: hidden; /* Скрывает все, что выходит за пределы блока */
-
-    .hero__container{
-        width: 100%;
-        height: 100%;
-        background-image: 
-        linear-gradient(to left, rgba(28, 27, 41, 0), rgba(28, 27, 41, 1) 76.5%),
-        linear-gradient(to top, rgba(28, 27, 41, 1), rgba(28, 27, 41, 0)20%);        
-        background-repeat: no-repeat; 
-        background-size: contain;
+@media(max-width:1460px)  {
+    
+    .background__slider{
+        height: 696px;
     }
-}
-@media (max-width:1280px){
+    .background__slide{
+        background-size: cover;
+    }
+    .wrapper{
+        max-width: 1080px;
+    }
     .container{
         max-width: 884px;
     }
     .header{
         .header__navigation{
-            max-width: 500px;
+            width: 500px;
         }
-        .header__nav {
-            .header__nav-link {
-              font-size: 14px;
+    }
+    ///HERO
+    .hero{
+        height: 500px;
+        .hero__info{
+            max-width: 323px;
+        }
+        .hero__container{
+            gap: 20px;
+        }
+        .hero__text{
+            h1{
+                font-size: 32px;
             }
-        }
-        .header__auth {
-            button{
+            p{
                 font-size: 14px;
             }
         }
-    }
-}
-@media (max-width:1024px){
-    .header{
-        .header__navigation{
-            max-width: 400px;
+        .hero__thumbnails{
+            gap: 8px;
         }
-        .header__auth {
-            button{
-                font-size: 14px;
-                padding:7.5px 20px;
+        .hero__slide-thumbnail{
+            height: 164px;
+            img{
+                object-fit: cover;
             }
         }
+        .hero__slide-thumbnail.active{
+            height: 179px;
+        }
+        .hero__buttons-buy{
+            max-width: 50%;
+        }
+        .hero__buttons-review{
+            max-width: 50%;
+        }
     }
 }
-@media (max-width:768px) {
+@media (max-width:1024px) {
     .header{
+        height: 83px;
+        padding: 12px 0;
+        .header__container{
+            padding: 0 15px;
+        }
         .header__logos{
             flex: 1;
         }
         .header__navigation{
             display: none;
         }
-        .header__auth {
-            display: none;
+        .header_nav{
+            .header__nax-link{
+                font-size: 14px;
+            }
+        }
+        .header__search{
+            width: 36px;
+            height: 36px;
+            margin-right: 20px;
+        }
+        .header__auth{
+            flex: 0;
+            margin-right: 20px;
         }
         .header__burger{
             display: block;
-            margin-left: 12px;
         }
+    }
+    ///HERO
+    .hero{
+        height: 388px;
+        .hero__container{
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+            flex-direction: column;
+        }
+        .hero__navigation{
+            width: 100%;
+            top: 33%;
+            left: 0;
+            position: absolute;
+            padding: 0 15px;
+            z-index: 100;
+        }
+        .hero__slide-controls{
+            width: 100%;
+            justify-content: space-between;
+            button{
+                padding: 12px;
+            }
+        }
+        .hero__text{
+            p{
+                display: none;
+            }
+        }
+        .hero__buttons-platforms,.hero__platform-genre,.hero__text-popular,.hero__thumbnails{
+            display: none;
+        }
+        .hero__ratingDate{
+            justify-content: space-around;
+            img{
+                height: 24px;
+                width: 24px;
+            }
+        }
+        .hero__info{
+            gap: 8px;
+            max-width: 382px;
+            text-align: center;
+            padding: 0 10px;
+        }
+        .hero__action-buttons{
+            gap: 12px;
+        }
+        .hero__details{
+            gap: 16px;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .header{
+        height: 64px;
+        .header__auth{
+            display: none;
+        }
+        .header__logos{
+            height: 40px;
+        }
+        .header__main-gaming{
+            width: 59px;
+            height: 20px;
+        }
+        .header__brand-controller{
+            width: 24px;
+            height: 24px;
+        }
+        .header__brand-prime{
+            width: 32px;
+            height: 19px;
+        }
+    }
+    .background__slider{
+        height: 486px;
+    }
+    .background__slide.first-slide {
+        background-position-x: 80%;
+    }
+    .background__slide{
+        background-position: center;
+    }
+    .background__slide::after {
+        background: 
+        linear-gradient(to left, rgba(28, 27, 41, 0), rgba(28, 27, 41, 1) 87%), 
+        linear-gradient(to top, rgba(28, 27, 41, 1), rgba(28, 27, 41, 0) 10%);
     }
 }

@@ -10,10 +10,11 @@ export function buildLoader(options:any): ModuleOptions['rules']{
     const scssLoader = {
         test: /\.scss$/,
         use: [
-            MiniCssExtractPlugin.loader, 
-            'css-loader', 
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            'postcss-loader',
             'sass-loader',
-        ]
+          ],
     };
     const htmlLoader = {
         test: /\.html$/,

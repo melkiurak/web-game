@@ -1,14 +1,5 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
-const client = new ApolloClient({
-    uri: 'https://parseapi.back4app.com/graphql', 
-    cache: new InMemoryCache(),
-    headers: {
-      "X-Parse-Application-Id": process.env.REACT_APP_PARSE_APP_ID,
-      "X-Parse-REST-API-Key": process.env.REACT_APP_PARSE_API_KEY, 
-    }
-});
-  
 
 const GET_GAMES = gql `
   query {
@@ -16,11 +7,25 @@ const GET_GAMES = gql `
       count
       edges {
         node {
-          objectId
           name
+          objectId
+          description
+          date
+          metacriticScore
+          metacriticScoreMax
+          price
+          genre
+          platform {
+            ... on Element{
+              value
+            }
+          }
           BackgroundTop {
             url
           }
+          BannerImg {
+            url
+          }          
         }
       }
     }

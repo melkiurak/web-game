@@ -6,7 +6,7 @@ import {BuildOptions } from './types/types';
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 export function buildPlugins({mode, paths}: BuildOptions): Configuration['plugins'] {
     return [
-        new MiniCssExtractPlugin({filename: 'styles.css'}),
+        new MiniCssExtractPlugin({filename: '[name].css'}),
         new HtmlWebpackPlugin({
             template: paths.html,
             preload:['styles.css'],

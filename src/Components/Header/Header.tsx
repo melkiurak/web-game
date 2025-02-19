@@ -9,8 +9,8 @@ export const  Header = () => {
             <div className="header__container container"> 
                 <div className="header__logos">
                     <div className="header__brand">
-                        <img src={controller} alt="controller" className="header__brand-logo" /> 
-                        <img src={prime} alt="prime" className="header__brand-logo" />
+                        <img src={controller} alt="controller" className="header__brand-controller" /> 
+                        <img src={prime} alt="prime" className="header__brand-prime" />
                     </div>
                     <img src={gamingLogo} alt="gamingLogo" className="header__main-gaming" />
                 </div>
